@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'circle_test',
         'USER': 'docker',
         'PASSWORD': 'docker',
-        'HOST': 'circle_test',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
