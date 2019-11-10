@@ -2,6 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import pymysql
 
 
 def main():
@@ -15,6 +16,8 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
+    pymysql.install_as_MySQLdb()
 
 
 if __name__ == '__main__':
