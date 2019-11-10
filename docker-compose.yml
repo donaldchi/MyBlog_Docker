@@ -6,6 +6,7 @@ services:
     volumes:
       - ./logs:/var/log/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    restart: always
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USER}
@@ -16,11 +17,12 @@ services:
       - ${DB_PORT}:3306
   web:
     build: .
+    command: python myblog/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     tty: true
+    restart: always
     ports:
       - 8000:8000
     depends_on:
       - db
-    command: python myblog/manage.py runserver 0.0.0.0:8000
