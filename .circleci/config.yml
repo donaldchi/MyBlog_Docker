@@ -11,8 +11,6 @@ jobs:
           MYSQL_USERNAME: root
           MYSQL_ROOT_PASSWORD: docker
 
-    working_directory: ~/myblog
-
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -29,7 +27,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python manage.py test
+            python ./myblog/manage.py test
 
 workflows:
   version: 2
