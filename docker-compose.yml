@@ -6,7 +6,6 @@ services:
     volumes:
       - ./logs:/var/log/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-    restart: always
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USER}
@@ -21,8 +20,9 @@ services:
     volumes:
       - .:/app
     tty: true
-    restart: always
     ports:
       - 8000:8000
     depends_on:
+      - db
+    links:
       - db
