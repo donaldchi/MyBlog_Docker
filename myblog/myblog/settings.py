@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'circle_test',
-        'USER': 'docker',
+        'NAME': 'myblog',
+        'USER': 'root',
         'PASSWORD': 'docker',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhos',
         'PORT': '3306',
     }
 }

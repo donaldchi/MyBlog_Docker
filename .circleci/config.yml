@@ -8,8 +8,8 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: docker
           MYSQL_PASSWORD: docker
-          MYSQL_USER: docker
-          MYSQL_DATABASE: circle_test
+          MYSQL_USER: root
+          MYSQL_DATABASE: myblog
           MYSQL_ROOT_HOST: "%"
 
     steps:
