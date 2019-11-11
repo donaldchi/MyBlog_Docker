@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'myblog',
         'USER': 'root',
         'PASSWORD': 'docker',
-        'HOST': 'localhos',
+        'HOST': 'db',
         'PORT': '3306',
     }
 }

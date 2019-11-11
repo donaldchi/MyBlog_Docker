@@ -16,9 +16,9 @@ services:
       - ${DB_PORT}:3306
   web:
     build: .
-    command: python myblog/manage.py runserver 0.0.0.0:8000
+    command: python application/manage.py runserver 0.0.0.0:8000 --settings=myblog.settings.base
     volumes:
-      - .:/app
+      - .:/code
     tty: true
     ports:
       - 8000:8000
