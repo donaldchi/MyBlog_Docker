@@ -3,10 +3,10 @@ from .base import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'circle_test',
-        'USER': 'docker',
+        'NAME': 'myblog',
+        'USER': 'root',
         'PASSWORD': 'docker',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '3306',
     }
 }
