@@ -1,6 +1,6 @@
 from .base import *
 
-DATABASES += {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'circle_test',
