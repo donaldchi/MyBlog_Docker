@@ -28,7 +28,6 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python ./myblog/manage.py test
             python application/manage.py test --settings=myblog.settings.ci
 
 workflows:
