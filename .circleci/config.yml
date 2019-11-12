@@ -29,9 +29,10 @@ jobs:
           name: run isort
           shell: /bin/bash
           command: |
-            find -not -path 'venv/*' | isort -ns __init__.py -m 3 -y
-            find application/ -name '*.py' -not -path '*migrations*' -not -path 'application/lib/*' | isort -ns __init__.py -m 3 -y
-            
+            ls -all application/
+            isort -m 3 application/*.py
+            isort -m 3 application/myblog/*.py
+            isort -m 3 application/myblog/settings/*.py            
             git add .
             git config --global user.email "developer@ganbaruyo.net"
             git config --global user.name "ganbaruyo Bot"
