@@ -25,12 +25,12 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
       
-      - run:
-          name: initialize db
-          command: |
-            . venv/bin/activate
-            python application/manage.py makemigrations --settings=myblog.settings.ci
-            python application/manage.py migrate --settings=myblog.settings.ci
+      # - run:
+      #     name: initialize db
+      #     command: |
+      #       . venv/bin/activate
+      #       python application/manage.py makemigrations --settings=myblog.settings.ci
+      #       python application/manage.py migrate --settings=myblog.settings.ci
 
       - run:
           name: run tests
