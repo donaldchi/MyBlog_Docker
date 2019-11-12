@@ -36,7 +36,8 @@ jobs:
           name: run isort
           shell: /bin/bash
           command: |
-            find application/ -name '*.py' -not -path '*migrations*' -not -path 'application/lib/*' | xargs poetry run isort -ns __init__.py -m 3 -y
+            find application/ -name '*.py' -not -path '*migrations*' -not -path 'application/lib/*' | run isort -ns __init__.py -m 3 -y
+            find -not -path 'venv/*'
             git add --all
             git config --global user.email "developer@ganbaruyo.net"
             git config --global user.name "ganbaruyo Bot"
