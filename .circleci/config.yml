@@ -11,10 +11,13 @@ jobs:
           MYSQL_USER: root
           MYSQL_ROOT_PASSWORD: docker
           MYSQL_PASSWORD: docker
+    
+    working_directory: ~/repo
     steps:
       - add_ssh_keys:
           fingerprints:
             -"60:c0:95:ec:29:81:14:d4:5c:2f:b7:94:95:8a:18:b0"
+      - checkout
       - run:
           name: install dependencies
           command: |
