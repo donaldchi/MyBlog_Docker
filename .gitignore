@@ -1,3 +1,6 @@
 logs/
-myblog/myblog/__pycache__/
-myblog/myblog/__init__.py
+application/myblog/__pycache__/
+application/myblog/__pycache__/*.pyc
+application/myblog/__init__.py
+application/myblog/settings/__pycache__/
+application/myblog/settings/__pycache__/*.pyc

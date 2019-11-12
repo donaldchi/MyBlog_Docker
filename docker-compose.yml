@@ -13,9 +13,10 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASS}
       - TZ=${TZ}
     ports:
-      - 3306:3306
+      - ${DB_PORT}:3306
   web:
     build: .
+    command: python application/manage.py runserver 0.0.0.0:8000 --settings=myblog.settings.base
     volumes:
       - .:/code
     tty: true
@@ -23,4 +24,5 @@ services:
       - 8000:8000
     depends_on:
       - db
-    command: python myblog/manage.py runserver 0.0.0.0:8000
+    links:
+      - db
