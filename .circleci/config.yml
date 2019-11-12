@@ -33,19 +33,6 @@ jobs:
             python application/manage.py migrate --settings=myblog.settings.ci
 
       - run:
-          name: run isort
-          shell: /bin/bash
-          command: |
-            find application/ -name '*.py' -not -path '*migrations*' -not -path 'application/lib/*' | run isort -ns __init__.py -m 3 -y
-            find -not -path 'venv/*'
-            git add --all
-            git config --global user.email "developer@ganbaruyo.net"
-            git config --global user.name "ganbaruyo Bot"
-            git commit -m '[bot] run isort'
-            git push origin $CIRCLE_BRANCH
-            echo 'done!'
-
-      - run:
           name: run tests
           command: |
             . venv/bin/activate
