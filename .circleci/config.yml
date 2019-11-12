@@ -32,19 +32,19 @@ jobs:
             python application/manage.py makemigrations --settings=myblog.settings.ci
             python application/manage.py migrate --settings=myblog.settings.ci
 
-      - run:
-          name: run isort
-          shell: /bin/bash
-          command: |
-            find -not -path 'venv/*' | run isort -ns __init__.py -m 3 -y
-            find application/ -name '*.py' -not -path '*migrations*' -not -path 'application/lib/*' | run isort -ns __init__.py -m 3 -y
+      # - run:
+      #     name: run isort
+      #     shell: /bin/bash
+      #     command: |
+      #       find -not -path 'venv/*' | run isort -ns __init__.py -m 3 -y
+      #       find application/ -name '*.py' -not -path '*migrations*' -not -path 'application/lib/*' | run isort -ns __init__.py -m 3 -y
             
-            git add --all
-            git config --global user.email "developer@ganbaruyo.net"
-            git config --global user.name "ganbaruyo Bot"
-            git commit -m '[bot] run isort'
-            git push origin $CIRCLE_BRANCH
-            echo 'done!'
+      #       git add --all
+      #       git config --global user.email "developer@ganbaruyo.net"
+      #       git config --global user.name "ganbaruyo Bot"
+      #       git commit -m '[bot] run isort'
+      #       git push origin $CIRCLE_BRANCH
+      #       echo 'done!'
 
       - run:
           name: run tests
