@@ -3,15 +3,16 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.8
+        environment:
+          DATABASE_URL:'127.0.0.1'
       - image: circleci/mysql:8.0.14
         command: --default-authentication-plugin=mysql_native_password
         environment:
+          MYSQL_ROOT_HOST: "%"
+          MYSQL_DATABASE: myblog
+          MYSQL_USER: root
           MYSQL_ROOT_PASSWORD: docker
           MYSQL_PASSWORD: docker
-          MYSQL_USER: root
-          MYSQL_DATABASE: myblog
-          MYSQL_ROOT_HOST: "%"
-
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -23,6 +24,13 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+      
+      - run:
+          name: initialize db
+          command: |
+            . venv/bin/activate
+            python application/manage.py makemigrations --settings=myblog.settings.ci
+            python application/manage.py migrate --settings=myblog.settings.ci
 
       - run:
           name: run tests
