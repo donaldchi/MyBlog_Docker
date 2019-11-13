@@ -30,18 +30,17 @@ jobs:
           name: run isort
           command: |
             . venv/bin/activate
-            ls -all
-            cat .gitignore
+            find application/ -name '*.py' | isort -ns __init__.py -m 3 -y 
             # isort -m 3 . --skip *.pyc
-            isort -m 3 application/*.py
+            # isort -m 3 application/*.py
             # isort -m 3 application/myblog/*.py
             # isort -m 3 application/myblog/settings/*.py            
-            # git add .
-            # git config --global user.email "developer@ganbaruyo.net"
-            # git config --global user.name "ganbaruyo Bot"
-            # git commit -m '[bot] run isort'
-            # git push origin $CIRCLE_BRANCH
-            # echo 'done!'
+            git add .
+            git config --global user.email "developer@ganbaruyo.net"
+            git config --global user.name "ganbaruyo Bot"
+            git commit -m '[bot] run isort'
+            git push origin $CIRCLE_BRANCH
+            echo 'done!'
 
       - run:
           name: initialize db
