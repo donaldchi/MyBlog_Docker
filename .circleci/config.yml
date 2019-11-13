@@ -30,9 +30,10 @@ jobs:
           name: run isort
           command: |
             . venv/bin/activate
-            isort -m 3 application/*.py
-            isort -m 3 application/myblog/*.py
-            isort -m 3 application/myblog/settings/*.py            
+            isort -m 3 . --skip *.pyc
+            # isort -m 3 application/*.py
+            # isort -m 3 application/myblog/*.py
+            # isort -m 3 application/myblog/settings/*.py            
             git add .
             git config --global user.email "developer@ganbaruyo.net"
             git config --global user.name "ganbaruyo Bot"
