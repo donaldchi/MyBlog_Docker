@@ -33,7 +33,7 @@ jobs:
             ls -all
             cat .gitignore
             # isort -m 3 . --skip *.pyc
-            # isort -m 3 application/*.py
+            isort -m 3 application/*.py
             # isort -m 3 application/myblog/*.py
             # isort -m 3 application/myblog/settings/*.py            
             # git add .
