@@ -30,7 +30,6 @@ jobs:
           name: run isort
           command: |
             . venv/bin/activate
-            cat .ignore
             isort -m 3 . --skip *.pyc
             # isort -m 3 application/*.py
             # isort -m 3 application/myblog/*.py
