@@ -31,10 +31,10 @@ jobs:
           command: |
             . venv/bin/activate
             isort -m 3 application/*.y
-            # ls -all application/
-            # isort -m 3 application/*.py
-            # isort -m 3 application/myblog/*.py
-            # isort -m 3 application/myblog/settings/*.py            
+            ls -all application/
+            isort -m 3 application/*.py
+            isort -m 3 application/myblog/*.py
+            isort -m 3 application/myblog/settings/*.py            
             # git add .
             # git config --global user.email "developer@ganbaruyo.net"
             # git config --global user.name "ganbaruyo Bot"
