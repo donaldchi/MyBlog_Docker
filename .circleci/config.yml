@@ -29,16 +29,17 @@ jobs:
           name: run isort
           shell: /bin/bash
           command: |
-            ls -all application/
-            isort -m 3 application/*.py
-            isort -m 3 application/myblog/*.py
-            isort -m 3 application/myblog/settings/*.py            
-            git add .
-            git config --global user.email "developer@ganbaruyo.net"
-            git config --global user.name "ganbaruyo Bot"
-            git commit -m '[bot] run isort'
-            git push origin $CIRCLE_BRANCH
-            echo 'done!'
+            isort -m 3 application/*.y
+            # ls -all application/
+            # isort -m 3 application/*.py
+            # isort -m 3 application/myblog/*.py
+            # isort -m 3 application/myblog/settings/*.py            
+            # git add .
+            # git config --global user.email "developer@ganbaruyo.net"
+            # git config --global user.name "ganbaruyo Bot"
+            # git commit -m '[bot] run isort'
+            # git push origin $CIRCLE_BRANCH
+            # echo 'done!'
 
       - run:
           name: initialize db
