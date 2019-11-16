@@ -1,0 +1,3 @@
+[flake8]
+exclude=application/myblog/settings/ci.py
+max-line-length=100
