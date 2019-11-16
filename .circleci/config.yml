@@ -49,6 +49,7 @@ jobs:
       - run:
           name: check codestyle automatically
           command: |
+            . venv/bin/activate
             find application/ -name '*.py' -not -path '/home/circleci/repo/venv/*'| flake8 --statistics
 
       - run:
