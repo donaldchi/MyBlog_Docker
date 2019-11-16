@@ -45,6 +45,11 @@ jobs:
             else
               echo 'nothing to commit!'
             fi
+      
+      - run:
+        name: check codestyle automatically
+        command: |
+          find application/ -name '*.py' -not -path '/home/circleci/repo/venv/*'| flake8 --statistics
 
       - run:
           name: initialize db
