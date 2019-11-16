@@ -50,8 +50,7 @@ jobs:
           name: check codestyle automatically
           command: |
             . venv/bin/activate
-            find application/ -name '*.py'
-            find application/ -name '*.py' | flake8 --statistics
+            flake8 application/
 
       - run:
           name: initialize db
