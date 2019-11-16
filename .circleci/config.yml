@@ -30,7 +30,7 @@ jobs:
           name: run isort
           command: |
             . venv/bin/activate
-            find application/ -name '*.py' | isort -ns __init__.py -m 3 -y 
+            find application/ -name '*.py' -not -path '/home/circleci/repo/venv/'| isort -ns __init__.py -m 3 -y 
             # git add .
             # git config --global user.email "developer@ganbaruyo.net"
             # git config --global user.name "ganbaruyo Bot"
