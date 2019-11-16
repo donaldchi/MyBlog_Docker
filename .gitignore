@@ -5,3 +5,4 @@ application/myblog/__init__.py
 application/myblog/settings/__pycache__/
 application/myblog/settings/__pycache__/*.pyc
 venv/
+memo.txt
