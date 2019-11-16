@@ -3,8 +3,6 @@
 import os
 import sys
 
-import mysqlclient
-
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myblog.settings')
