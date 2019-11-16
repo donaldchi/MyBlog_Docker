@@ -50,7 +50,7 @@ jobs:
           name: check codestyle automatically
           command: |
             . venv/bin/activate
-            flake8 application/
+            flake8 application/ --max-line-length 100
 
       - run:
           name: initialize db
