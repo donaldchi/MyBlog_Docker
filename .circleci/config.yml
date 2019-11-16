@@ -31,13 +31,22 @@ jobs:
           command: |
             . venv/bin/activate
             find application/ -name '*.py' -not -path '/home/circleci/repo/venv/*'| isort -ns __init__.py -m 3 -y 
-            git add .
-            git status
-            git config --global user.email "developer@ganbaruyo.net"
-            git config --global user.name "ganbaruyo Bot"
-            git commit -m '[bot] run isort'
-            git push origin $CIRCLE_BRANCH
-            echo 'done!'
+
+            compare_url=$CIRCLE_COMPARE_URL
+            compare_ids=${compare_url##*/}
+            diff=$(git diff --name-only $compare_ids)
+
+            if [[ "${diff}" =~ client/ ]] ; then
+              git add .
+              git status
+              git config --global user.email "developer@ganbaruyo.net"
+              git config --global user.name "ganbaruyo Bot"
+              git commit -m '[bot] run isort'
+              git push origin $CIRCLE_BRANCH
+              echo 'done!'
+            else
+              echo 'nothing to commit!'
+            fi
 
       - run:
           name: initialize db
